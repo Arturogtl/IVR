@@ -12,6 +12,5 @@
 */
 
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'LogController@index');
+Route::get('/graphs', 'LogController@graphs');

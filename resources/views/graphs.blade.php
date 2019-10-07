@@ -2,13 +2,13 @@
 @extends('layouts.app');
 
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="min-width: 60rem;">
                 <div class="card-header">
 
-                    Registro de Bloqueos Preventivos IVR
+                    Distribución de opciones IVR utilizadas por usuarios - Vista General
                 </div>
                 <div class="card-body">
                      <head>
@@ -18,44 +18,8 @@
         <title>Laravel</title>
 
     </head>
-               <div class="d-flex justify-content-center">
-               <table class="table table-striped" align="center">
-                        <thead>
-                            <tr>
-                             <th>Cédula</th>
-                             <th>Código</th>
-                             <th>Razón de Bloqueo</th>
-                             <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($registers ?? '' as $register)
-                            <tr>
-                                <td>{{ $register->AF_Rif }}</td>
-                                <td>{{ $register->codigo_transaccion }}</td>
-                                <td>{{ $register->razon_bloqueo }}</td>
-                                <td>{{ $register->accion }}</td>
-                              
-                                <td>
-                         </form>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                       
-                        </tbody>
-                    </table>
-             <div>{{ $registers->render() }}</div>
-                        </tbody>
-
-            
+       
           
-                 
-                       
-            </div>
-
-
-   
 
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -65,12 +29,14 @@
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Numero de Transacciones'],
           ['Bloqueo Preventivo Internet Banking',     {{$count61}}  ],
-          ['Bloqueo SMS Mecanismo DetectID',          {{$count62}}     ]
+          ['Bloqueo SMS Mecanismo DetectID',       {{$count62}}     ],
         ]);
 
         var options = {
           title: 'Distribución en Log de opciones IVR',
           pieHole: 0.4,
+            colors: ['#32CEB9', '#10C7EC'],
+              is3D: true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -86,12 +52,14 @@
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Numero de Transacciones'],
           ['Bloqueo Preventivo Internet Banking',     {{$count61}}  ],
-          ['Bloqueo SMS Mecanismo DetectID',       {{$count61}}     ],
+          ['Bloqueo SMS Mecanismo DetectID',       {{$count62}}     ],
         ]);
 
         var options = {
           title: 'Distribución en Log de opciones IVR',
-          pieHole: 0.4,
+          colors: ['#32CEB9', '#10C7EC'],
+          pieHole: 0.2,
+           is3D: true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutcharts'));
